@@ -4,6 +4,12 @@ import useApi from "@/composables/useApi";
 import useMouse from "@/composables/useMouse";
 import type { User } from "@/types";
 
+// import { useCounterStore } from "@/stores/counter";
+// const counterStore = useCounterStore();
+
+import useCounterStore from "@/composables/useCounterStore";
+const { count } = useCounterStore();
+
 const { fetchData, error, isLoading, result } = useApi<User[]>("/users");
 const { x, y } = useMouse();
 fetchData();
@@ -11,6 +17,7 @@ fetchData();
 
 <template>
   <main>
+    {{ count }}
     <div v-if="error.length === 0">
       <p>{{ error }}</p>
     </div>

@@ -5,7 +5,9 @@
 </template>
 
 <script setup lang="ts">
-function handleSubmit() {
-  axios.post("/login");
+import useAuth from "@/composables/useAuth";
+const { login } = useAuth();
+function handleSumbit() {
+  login();
 }
 </script>

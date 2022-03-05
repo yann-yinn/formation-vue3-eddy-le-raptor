@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import TheWelcome from "@/components/TheWelcome.vue";
+// import { useCounterStore } from "@/stores/counter";
+// const counterStore = useCounterStore();
+import useCounterStore from "@/composables/useCounterStore";
+const { count, increment } = useCounterStore();
 </script>
 
 <template>
-  <main>coucou</main>
+  <main>
+    {{ count }}
+    <button @click="increment">++</button>
+  </main>
 </template>
